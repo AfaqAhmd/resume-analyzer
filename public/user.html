@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<!-- Global Loader Overlay -->
+<div id="globalLoader">
+  <div class="loader-content">
+    <img src="loader.gif" alt="Loading..." />
+    <!-- <p>Please wait...</p> -->
+  </div>
+</div>
+
+<div class="page-container">
+
+    <h1>User Dashboard</h1>
+
+        <!-- USER INFO -->
+        <div class="section">
+            <h2>User Information</h2>
+
+            <div class="info-box">
+                Logged in as: <strong><span id="user-email"></span></strong>
+            </div>
+        </div>
+
+        <!-- RESUME UPLOAD SECTION -->
+        <div id="upload-section" class="section">
+            <h2>Upload Your Resume</h2>
+
+            <form id="uploadResumeForm">
+                <label>Email</label>
+                <input type="email" id="resumeEmail" name="email" required placeholder="Enter your email">
+
+                <label>Resume PDF</label>
+                <input type="file" id="resumePdf" name="resumePdf" accept=".pdf" required>
+
+                <button type="submit">Upload & Analyze Resume</button>
+            </form>
+
+            <p id="uploadStatusMessage" style="color: green; margin-top:10px;"></p>
+        </div>
+
+        <!-- RESUME ALREADY UPLOADED -->
+        <div id="uploadedResumeSection" class="section" style="display:none;">
+            <h2>Your Resume</h2>
+            <p id="uploadedResumeMessage">
+                Your resume is uploaded. 
+                <a id="updateResumeLink">Update Resume</a>
+            </p>
+        </div>
+
+        <!-- JOB MATCH SECTION -->
+        <div id="analyze-section" class="section" style="display:none;">
+            <h2>Match Resume With Job Description</h2>
+
+            <form id="jobMatchForm">
+
+                <label>Email</label>
+                <input type="email" id="jobEmail" name="email" required>
+
+                <label>Company</label>
+                <input type="text" id="company" name="company" required placeholder="Company name">
+
+                <label>Position</label>
+                <input type="text" id="position" name="position" required placeholder="Job title">
+
+                <label>Job Description</label>
+                <textarea id="jobDescription" name="jobDescription" rows="6" required placeholder="Paste job description here..."></textarea>
+
+                <button type="submit">Analyze Job Fit</button>
+            </form>
+
+            <div id="jobMatchResult"></div>
+        </div>
+
+    </div>
+
+
+<script src="app.js"></script>
+
+</body>
+</html>
