@@ -8,7 +8,7 @@ async function dbCon() {
     try {
         const db = await mongoose
 
-            .connect(`mongodb+srv://afaqahmed:International19000@cluster0.eak8wxl.mongodb.net/?retryWrites=true&w=majority`)
+            .connect(`mongodb+srv://afaqahmed:${process.env.MONGO_PASS}@cluster0.eak8wxl.mongodb.net/?retryWrites=true&w=majority`)
 
             .then(() => console.log("Database Connected"))
             .catch((err) => console.log(`connection failed ${err}`));
